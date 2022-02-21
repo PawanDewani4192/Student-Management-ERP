@@ -1,0 +1,19 @@
+Html-
+	introduction,web page,web-site,web-app,tags like html,body,h1,div,table,form,audio,video,iframe etc
+	form frocessing sign up and login form,url mappings,data processing with form
+css-
+	css introduction,css types(inline,internal,external),hom page designing,website designing,template editing
+javascript-
+	introduction,ways of printing,data types,variable,conditional statements,loops,functions,event handling
+	form validations,classes,objects,constructors
+jquery-
+	introduction,jquery functions,events,plugins
+bootstrap-
+	introduction,grid model,classes for buttons,colors,borders,table,div etc
+typescript-
+	oops concepts with type script(classes,constructor,object),differnce between javascript and type script
+angular-
+	introduction,versions,single page application introduction,components creation,linking of components,parent and 
+	child components,work of components in single page application,models and its uses,data binding(one way data 
+	binding,interpolation,property binding,event binding,two way databinding),ng-style,ng-class,routings,bootstrap and
+	jquery with angular etc

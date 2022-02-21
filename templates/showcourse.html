@@ -1,0 +1,40 @@
+{% extends 'design.html'%}
+<html>
+    <head></head>
+    <body>
+        {% block content%}
+        <h3 class="text-center text-dark">showcourse</h3>
+        <div class="container">
+            <table class=" table table-bordered mt-3 table-striped table-hover table-dark text-center">
+                <thead>
+                    <th>id</th>
+                    <th>cname</th>
+                    <th>duration</th>
+                    <th>fees</th>
+                    <th>details</th>
+                    <th>syllabus</th>
+                    <th>update</th>
+                    <th>delete</th>
+                </thead>
+                {% for i in cr %}
+            <tbody>
+             <tr>
+                <form action="updatecourse" method="post">
+                    {% csrf_token %}
+                    <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}"/></td>
+                    <td><input type="text" name="cname" value="{{i.cname}}"/></td>
+                    <td><input type="text" name="duration" value="{{i.duration}}"/></td>
+                    <td><input type="text" name="fees" value="{{i.fees}}"/></td>
+                    <td><input type="text" name="details" value="{{i.details}}"/></td>
+                    <td><input type="text" name="syllabus" value="{{i.syllabus}}"/></td>
+                    <td><input type="submit" value="updatecourse" class="btn btn-outline-warning"/></td>
+                    <td><a href="deletecourse?id={{i.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </form>
+            </tr>
+            </tbody>
+            {% endfor %}  
+        </div>       
+     </table>
+     {% endblock %}
+    </body>
+</html>

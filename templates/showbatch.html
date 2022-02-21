@@ -1,0 +1,52 @@
+{% extends 'design.html'%}
+<html>
+    <head>
+    </head>
+    <body>
+        {% block content%}
+        <h3 class="text-center text-dark">showbatch</h3>
+        <div class="container">
+            <table class=" table table-bordered mt-3 table-striped table-hover table-dark text-center">
+            <tr>
+                <th>ID</th>
+                <th>BNAME</th>
+                <th>TIMING</th>
+                <th>START_DATE</th>
+                <th>STATUS</th>
+                <th>TRAINER</th>
+                <th>STUDENT</th>
+                <th>UPDATE</th>
+                <th>DELETE</th>
+            </tr>
+            {% for i in bt %}
+            <tr>
+                <th><input type="hidden" name="id" value="{{i.id}}" />{{i.id}}</th>
+                <th><input type="text" name="bname" value="{{i.bname}}" /></th>
+                <th><input type="text" name="timing" value="{{i.timing}}" /></th>
+                <th><input type="text" name="startdate" value="{{i.startdate}}" /></th>
+                <th><input type="text" name="status" value="{{i.status}}" /></th>
+                <th><select name="Trainer">
+                        <option value="{{i.Trainer.id}}">{{i.Trainer.tname}}</option>
+                    <option>-----------</option>
+                    {% for j in tr %}
+                        <option value="{{j.id}}">{{j.tname}}</option>
+                    {% endfor %}
+                    </select></th>
+                <th><select name="Student" multiple>
+                    {% for j in i.Students.all %}
+                            <option value="{{j.id}}" selected>{{j}}</option>
+                    {% endfor %}
+                    <option>-----------</option>
+                    {% for k in st %}
+                        <option value="{{k.id}}">{{k.name}}</option>
+                    {% endfor %}
+                    </select></th>
+                <th><input type="submit" value="updatebatch" class="btn btn-outline-warning" /></th>
+                <th><a href="deletebatch?id={{i.id}}" class="btn btn-outline-danger">Delete</a></th>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    {% endblock %}
+    </body>
+</html>

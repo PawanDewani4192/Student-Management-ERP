@@ -1,0 +1,63 @@
+{% extends 'design.html'%}
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% block content%}
+        <form action="" class="d-flex flex-column py-3 " method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col-6 form-group">
+              <label>Batch Name</label>
+              <input type="text" class="form-control" name="bname" placeholder="Name" required/>
+            </div>
+ 
+            <div class="col-6 form-group">
+              <label >Timing</label>
+              <input type="text" class="form-control" name="timing"  placeholder="timing" required/>
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-6 form-group">
+             <label>Start Date</label>
+             <input type="date" class="form-control" name="startdate"  placeholder="Start Date" required/>
+           </div>
+
+           <div class="col-6 form-group">
+            <label>Current Status</label>
+            <input type="text" class="form-control" name="status"  placeholder="Current Status" required/>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 form-group">
+                <label>Current Trainer Available</label>
+                <select class="form-control" name="Trainer">
+                    <option >Choose Trainer </option>
+                {% for t in tr %}
+                <option value="{{t.id}}">{{t}}</option>
+                {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label>Student</label>
+                <select class="form-control" multiple name="Student">
+                    <option >Choose Student </option>
+                {% for s in st %}
+                <option value="{{s.id}}">{{s}}</option>
+                {% endfor %}
+                </select>
+
+            </div>
+        </div>
+ 
+        <input class="btn col-4 btn-secondary" type="submit" value="AddBatch"/>
+    </form>
+    {% endblock %}
+    
+    </body>
+    
+</html>

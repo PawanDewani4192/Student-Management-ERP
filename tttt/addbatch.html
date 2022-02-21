@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="" method="post">
+        {% csrf_token %}
+        Bname <input type="text" name="bname" /><br></br>
+        Timing<input type="text" name="timing" /><br></br>
+        StartDate <input type="date" name="startdate" /><br></br>
+        Status <input type="text" name="status" /><br></br>
+        Trainer<select name="Trainer">
+            {%for i in tr%}
+                <option value="{{i.id}}">{{i}}</option>
+            {%endfor%}
+        </select><br><br>
+        Student <select name="Student" multiple >
+            {%for i in st%}
+                <option value="{{i.id}}">{{i.name}}</option>
+            {%endfor%}
+        </select><br>
+        <input type="submit" value="AddBatch" />
+    </form>
+    </body>
+</html>

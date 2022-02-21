@@ -1,0 +1,75 @@
+{% extends 'design.html'%}
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% block content%}
+        <form action="" class="d-flex flex-column py-3" method="post">
+        {% csrf_token %}
+        
+        <div class="row">
+            <div class="col-6 form-group">
+                <label>Course</label>
+                <select name="course" class="form-control" data-select required>
+                    <option>Choose Course</option>
+                    {% for c in cour%}
+                    <option value="{{c.id}}">{{c}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-6 form-group">
+                <label>Student</label>
+                <select name="student" class="form-control" required>
+                    <option>Choose Student</option>
+                    {% for s in stu %}
+                    <option  value="{{s.id}}">{{s}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-6 form-group">
+              <label >Total Fees</label>
+              <input type="number" class="form-control" name="tfees"  placeholder="Fees" required data-fees/>
+            </div>
+
+            <div class="col-6 form-group">
+                <label>First Installment</label>
+                <input type="number" class="form-control" name="finst"  placeholder="First Installement" required data-first/>
+            </div>
+        </div>
+
+        <div class="row">
+        
+           <div class="col-6 form-group">
+            <label>First Installment Date</label>
+            <input type="date" class="form-control" name="finst_date"  placeholder="Intallment Date" required/>
+          </div>
+
+          <div class="col-6 form-group">
+            <label>Second Installment</label>
+            <input type="number" class="form-control" name="sinst"  placeholder="Second Installment" data-second/>
+          </div>
+
+        </div>
+
+        <div class="row">
+            
+              <div class="col-6 form-group">
+               <label>Second Installment Date</label>
+               <input type="date" class="form-control" name="sinst_date"  placeholder="Intallment Date" required/>
+             </div>
+
+             <div class="col-6 form-group">
+                <label> Remaining Fees</label>
+                <input type="number" class="form-control" name="remainfee"  placeholder="Due Fees" required data-rem/>
+            </div>
+
+        </div>
+        <input class="btn col-4 btn-primary" type="submit" value="AddAccount" />
+    </form>
+    {% endblock %}
+    </body>
+</html>

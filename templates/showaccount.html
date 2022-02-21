@@ -1,0 +1,61 @@
+{% extends 'design.html'%}
+<html>
+    <head></head>
+    <body>
+        {% block content%}
+        <h3 class="text-center text-dark">Showaccounts</h3>
+        <div class="container mt-3">
+            <table class=" table table-bordered mt-3 table-striped table-hover table-dark text-center">
+                <thead>
+                    <th>id</th>
+                    <th>course</th>
+                     <th>Student</th>
+                    <th>total_fees</th>
+                    <th>first_installment</th>
+                    <th>first_installment_date</th>
+                    <th>second_installment</th>
+                    <th>second_installment_date</th>
+                    <th>remaining_amount</th>
+                    <th>update</th>
+                    <th>delete</th>
+                </thead>
+            {% for i in Ac %}
+            <tbody>
+                <tr>
+                    <form action="updateaccount" method="post">
+                        {% csrf_token %}
+                        <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}"/></td>
+                        <td>
+                            <select name="courses">
+                            <option value="{{i.Course.id}}" selected>{{i.course}}</option>
+                            <option>-------</option>
+                            {% for c in cour %}
+                                <option value="{{c.id}}">{{c}}</option>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <select name="students">
+                            <option value="{{i.student.id}}" selected>{{i.Student}}</option>
+                            <option>-------</option>
+                            {% for s in stu %}
+                                <option value="{{s.id}}">{{s}}</option>
+                            {% endfor %}
+                        </select>
+                        </td>
+                        <td><input type="text" name="tfees" value="{{i.total_fees}}"/></td>
+                        <td><input type="text" name="finst" value="{{i.first_installment}}"/></td>
+                        <td><input type="text" name="finst_date" value="{{i.first_installment_date}}"/></td>
+                        <td><input type="text" name="sinst" value="{{i.second_installment}}"/></td>
+                        <td><input type="text" name="sinst_date" value="{{i.second_installment_date}}"/></td>
+                        <td><input type="text" name="remainfee" value="{{i.remaining_amount}}"/></td>
+                        <td><input type="submit" value="updateaccount"  class="btn btn-outline-warning"/></td>
+                        <td><a href="deleteaccount?id={{i.id}}"  class="btn btn-outline-danger">Delete</a></td>
+                    </form>
+                </tr>
+            </tbody>
+            {% endfor %}
+     </table>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 align="center">Trainer</h1>
+        <table align='center' border='1px'>
+            <tr>
+                <th>ID</th>
+                <th>Tname</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>qualification</th>
+                <th>subject</th>
+                <th>timings</th>
+            </tr>
+            {%for i in tr%}
+            <tr>
+                <td><input type="hidden" name="id" value="{{i.id}}" />{{i.id}}</td>
+                <td><input type="text" name="tname" value="{{i.tname}}" /></td>
+                <td><input type="text" name="mobile" value="{{i.mobile}}" /></td>
+                <td><input type="email" name="email" value="{{i.email}}" /></td>
+                <td><input type="text" name="qualification" value="{{i.qualification}}" /></td>
+                <th><input type="text" name="subject" value="{{i.subject}}" /></th>
+                <th><input type="text" name="timings" value="{{i.timings}}" /></th>
+                <td><input type="submit" value="updatetrainer" /></td>
+                <th><a href="deletetrainer?id={{i.id}}">Delete</a></th>
+
+            </tr>
+
+            {%endfor%}
+        </table>
+    </form>
+    </body>

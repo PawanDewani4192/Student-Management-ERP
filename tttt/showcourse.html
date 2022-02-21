@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 align="center">Course</h1>
+        <table align='center' border='1px'>
+            <tr>
+                <th>ID</th>
+                <th>Cname</th>
+                <th>Duration</th>
+                <th>Fees</th>
+                <th>Detail</th>
+                
+            </tr>
+            {%for i in cr%}
+            <tr>
+                <td><input type="hidden" name="id" value="{{i.id}}" />{{i.id}}</td>
+                <td><input type="text" name="cname" value="{{i.cname}}" /></td>
+                <td><input type="text" name="duration" value="{{i.duration}}" /></td>
+                <td><input type="email" name="fees" value="{{i.fees}}" /></td>
+                <td><input type="text" name="detail" value="{{i.detail}}" /></td>
+                <td><input type="submit" value="updatecourse" /></td>
+                <th><a href="deletecourse?id={{i.id}}">Delete</a></th>
+
+            </tr>
+
+            {%endfor%}
+        </table>
+    </form>
+    </body>

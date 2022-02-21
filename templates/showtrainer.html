@@ -1,0 +1,42 @@
+{% extends 'design.html'%}
+<html>
+    <head></head>
+    <body>
+        {% block content%}
+        <h3 class="text-center text-dark">ShowTrainers</h3>
+        <div class="container">
+            <table class=" table table-bordered mt-3 table-striped table-hover table-dark text-center">
+                <thead>
+                    <th>id</th>
+                    <th>tname</th>
+                    <th>mobile</th>
+                    <th>email</th>
+                    <th>qualification</th>
+                    <th>subject</th>
+                    <th>Timing</th>
+                    <th>update</th>
+                    <th>delete</th>
+                </thead>
+                {% for i in data %}
+            <tbody>
+             <tr>
+                <form action="updatetrainer" method="post">
+                    {% csrf_token %}
+                    <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}"/></td>
+                    <td><input type="text" name="tname" value="{{i.tname}}"/></td>
+                    <td><input type="text" name="mobile" value="{{i.mobile}}"/></td>
+                    <td><input type="text" name="email" value="{{i.email}}"/></td>
+                    <td><input type="text" name="qualification" value="{{i.qualification}}"/></td>
+                    <td><input type="text" name="subject" value="{{i.subject}}"/></td>
+                    <td><input type="text" name="timings" value="{{i.timings}}"/></td>
+                    <td><input type="submit" value="updatetrainer" class="btn btn-outline-warning"/></td>
+                    <td><a href="deletetrainer?id={{i.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </form>
+            </tr>
+            </tbody>
+            {% endfor %}  
+        </div>       
+     </table>
+     {% endblock %}
+    </body>
+</html>

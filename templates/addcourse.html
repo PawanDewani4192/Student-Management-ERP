@@ -1,0 +1,46 @@
+{% extends 'design.html'%}
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% block content%}
+        <form action="" class="d-flex flex-column py-3 " method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 form-group">
+              <label>Course Name</label>
+              <input type="text" class="form-control" name="cname" placeholder="Name" required maxlength="40"/>
+            </div>
+ 
+            <div class="col-6 form-group">
+              <label >Duration</label>
+              <input type="text" class="form-control" name="duration"  placeholder="Days & Month" required maxlength="20"/> 
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-6 form-group">
+             <label>Fees</label>
+             <input type="number" class="form-control" name="fees"  placeholder="fees" required/>
+           </div>
+
+           <div class="mb-3 p-2 col-6 form-group">
+            <label for="formFile" class="form-label">Syllabus</label>
+            <input class="form-control" type="file" name="syllebus" id="formFile"/>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-12 form-group">
+            <label >Detail</label>
+            <textarea class="form-control" name="details" placeholder="About Course" required maxlength="250" cols="30" rows="3"></textarea>
+          </div>
+        </div>
+ 
+        <input class="btn col-4 btn-secondary" type="submit" value="AddCourse" />
+    </form>
+    {% endblock %}
+    </body>
+</html>

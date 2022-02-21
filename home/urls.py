@@ -1,0 +1,27 @@
+from django.urls import path,include
+from.import views
+urlpatterns=[
+    path('', views.home,name="home"),
+    path('addstudent', views.addstudent,name="addstudent"),
+    path('showstudent', views.showstudent,name="showstudent"),
+    path('studentdelete',views.studentdelete,name="studentdelete"),
+    path('studentupdate',views.studentupdate,name="studentupdate"),
+    path('addtrainer', views.addtrainer,name="addtrainer"),
+    path('showtrainer', views.showtrainer,name="showtrainer"),
+    path('deletetrainer', views.deletetrainer,name="deletetrainer"),
+    path('updatetrainer', views.updatetrainer,name="updatetrainer"),
+    path('addcourse', views.addcourse,name="addcourse"),
+    path('showcourse', views.showcourse,name="showcourse"),
+    path('deletecourse', views.deletecourse,name="deletecourse"),
+    path('updatecourse',views.updatecourse,name="updatecourse"),
+    path('addaccount', views.addaccount,name="addaccount"),
+    path('showaccount', views.showaccount,name="showaccount"),
+    path('updateaccount', views.updateaccount,name="updateaccount"),
+    path('deleteaccount', views.deleteaccount,name="deleteaccount"),
+    path('addbatch', views.addbatch,name="addbatch"),
+    path('showbatch', views.showbatch,name="showbatch"),
+    path('updatebatch', views.updatebatch,name="updatebatch"),
+    path('deletebatch', views.deletebatch,name="deletebatch"),
+    path('serachenquiry', views.serachenquiry,name="serachenquiry"),
+    path('searchaccount', views.searchaccount,name="searchaccount"),
+]

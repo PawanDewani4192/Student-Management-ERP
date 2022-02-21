@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="" method="post">
+        {% csrf_token %}
+        Course <select name="course">
+            {%for i in cour%}
+                <option value="{{i.id}}">{{i}}</option>
+            {%endfor%}
+        </select><br><br>
+        Student <select name="student">
+            {%for i in stu%}
+                <option value="{{i.id}}">{{i}}</option>
+            {%endfor%}
+        </select><br><br>
+        Total_fees <input type="number" name="tfees" /><br></br>
+        First_installment <input type="number" name="finst" /><br></br>
+        First_installment_date <input type="date" name="finst_date" /><br></br>
+        Second_installment <input type="number" name="sinst" /><br></br>
+        Second_installment_date <input type="date" name="sinst_date" /><br></br>
+        Remaining_fees <input type="number" name="remainfee" /><br></br>
+        <input type="submit" value="add account" />
+    </form>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+{% extends 'design.html'%}
+<html>
+    <head></head>
+    <body>
+        {% block content%}
+        <h3 class="text-center text-dark">showstudents</h3>
+    <div class="container-fluid">
+        <table class="table table-bordered mt-3 table-striped table-hover table-dark text-center">
+            <thead>
+                <th>id</th>
+                <th>Enquiry_date</th>
+                <th>name</th>
+                <th>email</th>
+                <th>mobile</th>
+                <th>qualification</th>
+                <th>address</th>
+                <th>gender</th>
+                <th>branch</th>
+                <th>year</th>
+                <th>sem</th>
+                <th>status</th>
+                <th>update</th>
+                <th>Delete</th>
+            </thead>
+            {% for i in S %}
+            <tbody>
+                <tr>
+                    <form action="studentupdate" method="post">
+                        {% csrf_token %}
+                        <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}"/></td>
+                        <td>{{i.edt}}<input type="hidden" name="edt" value="{{i.edt}}"/></td>
+                        <td><input type="text" name="name" value="{{i.name}}"/></td>
+                        <td><input type="text" name="email" value="{{i.email}}"/></td>
+                        <td><input type="number" name="mobile" value="{{i.mobile}}"/></td>
+                        <td><input type="text" name="qualification" value="{{i.qualification}}"/></td>
+                        <td><input type="text" name="address" value="{{i.address}}"/></td>
+                        <td><input type="text" name="gender" value="{{i.gender}}"/></td>
+                        <td><input type="text" name="branch" value="{{i.branch}}"/></td>
+                        <td><input type="text" name="year" value="{{i.year}}"/></td>
+                        <td><input type="text" name="sem" value="{{i.sem}}"/></td>
+                        <td><select name="status">
+                            <option>{{i.status}}</option>
+                            <option>-------</option>
+                            <option>enquiry</option>
+                            <option>joined</option>
+                            <option>complete</option>
+                        </select></td>
+                        <td><input type="submit" value="studentupdate"  class="btn btn-outline-warning"/></td>
+                        <td><a href="studentdelete?id={{i.id}}" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+            </tbody>
+            {% endfor %}         
+     </table>
+     {% endblock %}
+    </div>
+    </body>
+</html>

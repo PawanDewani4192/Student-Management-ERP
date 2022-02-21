@@ -1,0 +1,117 @@
+{% extends 'design.html' %}
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% block content%}
+        <form action="" class="d-flex flex-column py-3 " method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" name="name" placeholder="Name" required/>
+            </div>
+ 
+            <div class="col-6 form-group">
+              <label >Email Address</label>
+              <input type="email" class="form-control" name="email"  placeholder="Email @" required/>
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-6 form-group">
+             <label>Mobile</label>
+             <input type="number" class="form-control" name="mobile"  placeholder="Mobile" required maxlength="12"/>
+           </div>
+
+           <div class="col-6 form-group">
+            <label >Qualification</label>
+            <input type="text" class="form-control" name="qualification" placeholder="Qualification" required/>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 form-group">
+                    <label >Address</label>
+                    <input type="text" class="form-control" name="address"  placeholder="Address" required/>
+            </div>
+            <div class="col-6 form-group">
+                <label>Gender</label>
+                <select class="form-control" name="gch">
+                  <option selected >Choose Gender</option>
+                  <option name="male">male</option>
+                  <option name="female">female</option>
+                  <option name="other">other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6 form-group">
+                <label >College</label>
+                <input type="text" class="form-control" name="college"  placeholder="college" required/>
+            </div>
+           
+           <div class="col-6 form-group">
+               <label>Branch</label>
+               <select class="form-control" name="bch">
+                   <option>Choose option</option>
+                   <option >cs</option>
+                   <option>it</option>
+                   <option>mech</option>
+                   <option>civil</option>
+                   <option>ec</option>
+                   <option>nonit</option>
+               </select>
+           </div>
+        </div>
+
+        <div class="row">
+
+           <div class="col-4 form-group">
+               <label>Year</label>
+               <select class="form-control" name="ych">
+                   <option>Choose option</option>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   <option>passout</option>
+               </select>
+           </div>
+
+           <div class="col-4 form-group">
+               <label>Sem</label>
+               <select class="form-control"name="sch">
+                   <option>Choose options</option>
+                   <option>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   <option>6</option>
+                   <option>7</option>
+                   <option>8</option>
+                   <option>9</option>
+                   <option>10</option>
+                   <option>passout</option>
+               </select>
+           </div>
+
+           <div class="col-4 form-group">
+               <label>Status</label>
+               <select class="form-control" name="ch">
+                   <option>Choose options</option>
+                   <option>enquiry</option>
+                   <option>joined</option>
+                   <option>complete</option>
+               </select>
+           </div>
+        </div>
+        <input class="btn col-4 btn-secondary" type="submit" value="Addstudent"/>
+    </form>
+    {% endblock %}
+    </body>
+</html>
