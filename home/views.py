@@ -28,7 +28,7 @@ def addstudent(request):
        return render(request,'addstudent.html',{'st':st})
 def showstudent(request):
     S=Student.objects.all()
-    return render(request,'showStudent.html',{'S':S})
+    return render(request,'showstudent.html',{'S':S})
 def studentdelete(request):
     id=request.GET['id']
     Student.objects.filter(id=id).delete()
