@@ -25,7 +25,7 @@ SECRET_KEY = 'g&=2a*mn)0jljpye)t(tgwe616)hs)7ihxrm^ye9ru+b8btk$k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +77,7 @@ WSGI_APPLICATION = 'pperp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pperp',
+        'NAME': 'student-management-ERP',
         'HOST':'localhost',
         'USER':'postgres',
         'PASSWORD':'root'
@@ -130,6 +129,3 @@ STATIC_ROOT=os.path.join(BASE_DIR,'assests')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
